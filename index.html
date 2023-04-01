@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+
+    body{
+        margin: 0 ;
+    }
+
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+    }
+
+    h1{
+        text-align: center;
+    }
+
+
+
+    #balloon {
+        font-size: 30px;
+    }
+
+    #arrows{
+        font-size: 30px;
+        padding: 10px;
+    }
+
+
+</style>
+
+<body>
+<h1>Balloon exercise</h1>
+
+<div class="container">
+    <div id="balloon">🎈</div>
+    <div id="arrows">
+        <div id="arrowUp">&#8593;</div>
+        <div id="arrowDown">&#8595;</div>
+    </div>
+</div>
+
+<script>
+
+    const balloon = document.getElementById('balloon');
+    const arrowUp = document.getElementById('arrowUp');
+    const arrowDown = document.getElementById('arrowDown')
+
+
+    arrowUp.addEventListener('click', () => {
+        balloon.style.fontSize = parseInt(window.getComputedStyle(balloon).fontSize) * 1.1 + 'px';
+
+        if (parseInt(balloon.style.fontSize) > 200) {
+            balloon.innerHTML = '💥';
+            arrowUp.removeEventListener('click', () => {});
+            arrowDown.removeEventListener('click', () => {});
+        }
+    });
+
+    arrowDown.addEventListener('click', () => {
+        balloon.style.fontSize = parseInt(window.getComputedStyle(balloon).fontSize) * 0.9 + 'px';
+    })
+
+</script>
+
+</body>
+</html>
